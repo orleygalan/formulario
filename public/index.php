@@ -13,7 +13,7 @@ if (!isset($routes[$uri])) {
     http_response_code(404);
     echo json_encode([
         "success" => false,
-        "error" => "Endpoint no encontrado"
+        "error" => "Endpoint no encontrado ."
     ]);
     exit;
 }
