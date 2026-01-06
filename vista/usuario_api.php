@@ -1,9 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Content-Type: application/json");
-
+require '../cross.php';
 require '../controlador/usuario_controlador.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
