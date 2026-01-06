@@ -1,16 +1,17 @@
-<?php 
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'facebook';
+<?php
+$host = $_ENV['MYSQLHOST'];
+$port = $_ENV['MYSQLPORT'];
+$user = $_ENV['MYSQLUSER'];
+$pass = $_ENV['MYSQLPASSWORD'];
+$db   = $_ENV['MYSQLDATABASE'];
 
-$conn = mysqli_connect($host, $user,$pass, $db, );
+$conexion = mysqli_connect($host, $user, $pass, $db, $port);
 
-// if($conn){
-//     echo 'Conectado exitosamente';
-//     exit();
-// }else{
-//     echo 'Error de conexion ,' . mysqli_connect_error();
-// }
-
-?>
+if (!$conexion) {
+    http_response_code(500);
+    echo json_encode([
+        "success" => false,
+        "error" => "Error de conexión a la base de datos"
+    ]);
+    exit;
+}
