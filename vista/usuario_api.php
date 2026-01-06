@@ -1,5 +1,5 @@
 <?php
-require '../cross.php';
+require './cross.php';
 require '../controlador/usuario_controlador.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
