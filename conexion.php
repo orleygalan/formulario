@@ -7,7 +7,7 @@ if (!$url) {
 
 $parts = parse_url($url);
 
-$conexion = mysqli_connect(
+$conn = mysqli_connect(
     $parts['host'],
     $parts['user'],
     $parts['pass'],
@@ -15,6 +15,6 @@ $conexion = mysqli_connect(
     $parts['port']
 );
 
-if (!$conexion) {
+if (!$conn) {
     die(mysqli_connect_error());
 }
