@@ -17,4 +17,6 @@ if (!isset($routes[$uri])) {
     exit;
 }
 
+require $routes[$uri];
+
 ?>
