@@ -1,5 +1,5 @@
 <?php
-require './molde/usuario_molde.php';
+require '../molde/usuario_molde.php';
 
 function register_molde($nombre, $edad, $password)
 {
