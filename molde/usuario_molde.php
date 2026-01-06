@@ -1,5 +1,5 @@
 <?php
-require '../conexion.php';
+require './conexion.php';
 
 function Registro_usuario($nombre, $edad, $password)
 {
