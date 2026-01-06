@@ -4,8 +4,6 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Content-Type: application/json");
 
-echo "Backend activo";
-exit;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
