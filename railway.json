@@ -1,6 +1,15 @@
 {
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "nixpacksConfig": {
+      "phases": {
+        "setup": {
+          "nixPkgs": ["php84"]
+        }
+      }
+    }
   },
-  "start": "php -S 0.0.0.0:$PORT -t public"
+  "deploy": {
+    "startCommand": "php -S 0.0.0.0:$PORT -t public"
+  }
 }
