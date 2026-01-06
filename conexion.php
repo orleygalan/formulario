@@ -1,17 +1,20 @@
 <?php
-$host = getenv('MYSQLHOST') ?: 'mysql.railway.internal';
-$port = getenv('MYSQLPORT') ?: 3306;
-$user = getenv('MYSQLUSER') ?: 'root';
-$pass = getenv('MYSQLPASSWORD') ?: '';
-$db   = getenv('MYSQLDATABASE') ?: 'railway';
+$url = getenv('MYSQL_PUBLIC_URL');
 
-$conexion = mysqli_connect($host, $user, $pass, $db, $port);
+if (!$url) {
+    die('MYSQL_PUBLIC_URL no definida');
+}
+
+$parts = parse_url($url);
+
+$conexion = mysqli_connect(
+    $parts['host'],
+    $parts['user'],
+    $parts['pass'],
+    ltrim($parts['path'], '/'),
+    $parts['port']
+);
 
 if (!$conexion) {
-    http_response_code(500);
-    echo json_encode([
-        "success" => false,
-        "error" => "Error de conexión a la base de datos"
-    ]);
-    exit;
+    die(mysqli_connect_error());
 }
